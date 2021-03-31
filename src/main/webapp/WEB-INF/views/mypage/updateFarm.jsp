@@ -1,113 +1,91 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="../mypage/adminMenu.jsp" />
-
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-<title>나의 농지 수정</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="description" content="" />
-<meta name="keywords" content="">
-<meta name="author" content="Phoenixcoded" />
 <!-- Favicon icon -->
 <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-
 <!-- vendor css -->
 <link rel="stylesheet" href="resources/admin/css/style.css">
- <style>
- table{
- text-align: center;
-  }
- 
- </style>  
+<style>
+.table.td {
+  width:50px !important;
+  height:25px !important;
+  font-size:20px !important;
+  text-align: center;
+}
+</style>
 </head>
+
+
 <body>
-	    <div class="pcoded-main-container">
-        <div class="pcoded-content">
-            <section class="pcoded-main-container">
-                <div class="col-md-9" align="center">
-                    <div class="card">
-                        <form id="frm" name="frm" action="updateFarm" method="post">
-                            <h3 align="center">
-                                <input type="text" class="form-control form-control-lg" id="farm_name" name="farm_name"
-                                    placeholder="농장이름을 입력하세요">
-                            </h3>
-                            <div class="card-body table-border-style">
-                                <div class="table-responsive">
 
-                                    <table class="table">
-                                        <tr>
-                                            <td name="farm_no">
-                                                <input type="hidden" class="form-control form-control-lg" id="farm_no"
-                                                    name="farm_no" placeholder="번호">
-                                            </td>
-                                            <th class="table-success">
-                                                <h3>소유자</h3>
-                                            </th>
-                                            <td name="farm_no">
-                                                <input type="text" class="form-control form-control-lg" id="user_id"
-                                                    name="user_id" placeholder="소유자ID" readonly="readonly">
-                                            </td>
-
-                                            <th class="table-success">
-                                                <h3>면적</h3>
-                                            </th>
-                                            <td name="farm_area">
-                                                <input type="text" class="form-control form-control-lg" id="farm_area"
-                                                    name="farm_area" placeholder="면적입력">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="table-success">
-                                                <h3>주소</h3>
-                                            </th>
-                                            <td colspan="5" name="farm_adr">
-                                                <input type="text" class="form-control form-control-lg" id="farm_adr"
-                                                    name="farm_adr" placeholder="주소입력">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th class="table-success">
-                                                <h3>소개</h3>
-                                            </th>
-                                            <td colspan="5" name="farm_content">
-                                                <textarea class="form-control form-control-lg" id="farm_content"
-                                                    name="farm_content" rows="3" placeholder="농장소개를 입력하세요"></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="6">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input"
-                                                            id="inputGroupFile01"> <label class="custom-file-label"
-                                                            for="inputGroupFile01">Choose
-                                                            file</label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <div class="col-md-10" align="center">
-                                        <button type="submit" class="btn  btn-outline-success">등록</button>
-                                        <button type="reset" class="btn  btn-outline-danger">취소</button>
+	<!-- 모달헤드 끝 -->
+	
+	<!-- 모달바디 시작 -->
+	<div class="modal-body">
+			<img class="img-fluid card-img-top"
+				src="resources/admin/images/slider/img-slide-1.jpg" alt="Card image cap">
+			<div class="card-body">
+			<form id="frm" name="frm" action="updateFarm" method="post">
+			
+				<!-- 숨겨진 유저 ID -->
+				<input type="hidden" name="userId" value="${ufarm.user_id } }">
+				<!-- 숨겨진 유저 ID -->
+			
+					<table class="table">
+							<tr class="table-success">
+								<td colspan="2">
+								   <div class="form-group">     
+                                        <input type="text" class="form-control" id="farm_name" name="farm_name" value="${ufarm.farm_name}"placeholder="${ufarm.farm_name}">
+                                    </div>								
+								</td>																
+							</tr>
+							<tr>
+								<th class="table-success">농장번호</th>
+								<td>
+								<input type="hidden" id="farm_no" name="farm_no" value="${ufarm.farm_no }">
+								${ufarm.farm_no }
+								</td>								
+								
+							</tr>
+							<tr>
+								<th class="table-success">주소</th>
+								<td>
+									<div class="form-group">     
+                                        <input type="text" class="form-control" id="farm_adr" name="farm_adr" value="${ufarm.farm_adr }" placeholder="${ufarm.farm_adr }">
                                     </div>
+								</td>								
+							</tr>
+							<tr>
+								<th class="table-success">면적</th>
+								<td>
+									<div class="form-group">     
+                                        <input type="text" class="form-control" id="farm_area" name="farm_area" value="${ufarm.farm_area }" placeholder="${ufarm.farm_area }">
                                     </div>
+								</td>								
+							</tr>
+							<tr>
+								<th class="table-success">내용</th>
+								<td>
+									<div class="form-group">
+										<textarea class="form-control" id="farm_content" name="farm_content" rows="3" 
+													value="${ufarm.farm_content }" placeholder="${ufarm.farm_content }">
+										</textarea> 
                                     </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
+								</td>								
+							</tr>												
+						</table>
+							<div align="center">
+									<button type="submit" class="btn  btn-outline-success">등록</button>
+							</div>
+			</form>
+			</div>
+	</div>
+	<!-- 모달바디 끝 -->
+	
+	<!-- Required Js -->
+	<script src="resources/admin/js/vendor-all.min.js"></script>
+	<script src="resources/admin/js/plugins/bootstrap.min.js"></script>
+	<script src="resources/admin/js/ripple.js"></script>
+	<script src="resources/admin/js/pcoded.min.js"></script>
 </body>
 </html>

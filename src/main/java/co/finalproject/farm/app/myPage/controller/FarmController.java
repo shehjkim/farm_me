@@ -1,8 +1,5 @@
 package co.finalproject.farm.app.myPage.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +32,18 @@ public class FarmController {
 		return "mypage/getFarmList";
 	}
 
+////단건조회
+//	@RequestMapping("/getFarm")
+//	public @ResponseBody List<FarmVO> getFarm(FarmVO vo) {
+//		return farmMapper.getFarm(vo);
+//	}
+	
 //단건조회
-	@RequestMapping("/getFarm")
-	public @ResponseBody List<FarmVO> getFarm(FarmVO vo) {
-		return farmMapper.getFarm(vo);
-	}
+		@RequestMapping("/getFarm")
+		public String getFarm(Model model, FarmVO vo) {
+			model.addAttribute("farm", farmMapper.getFarm(vo));		
+			return "mypage/getFarm";
+		}
 
 //등록폼
 	@RequestMapping("/insertFarm")
@@ -59,7 +63,8 @@ public class FarmController {
 //수정
 	// 수정폼
 	@RequestMapping("/updateFarm")
-	public String updateFarm(Model model) {
+	public String updateFarm(Model model,FarmVO vo) {
+		model.addAttribute("ufarm", farmMapper.getFarm(vo));
 		return "mypage/updateFarm";
 	}
 

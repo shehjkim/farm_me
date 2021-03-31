@@ -101,6 +101,8 @@
                                         <button type="submit" class="btn  btn-outline-success">등록</button>
                                         <button type="reset" class="btn  btn-outline-danger">취소</button>
                                     </div>
+                                    </div>
+                                    </div>
                         </form>
                     </div>
                 </div>

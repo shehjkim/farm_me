@@ -21,163 +21,124 @@
 <!-- vendor css -->
 <link rel="stylesheet" href="resources/admin/css/style.css">
 <style>
-table {
+.table{
 	text-align: center;
 }
+.table thead th {
+    border-bottom: 1px solid #e2e5e8;
+    font-size: 13px;
+    color: #37474f;
+    background: #e3f1d4 !important;
+    text-transform: uppercase;
+}
+
 </style>
 </head>
-<body>
-	<div class="pcoded-main-container">
-		<div class="pcoded-content">
-			<section class="pcoded-main-container">
-				<div class="col-md-10" align="center">
-					<div class="card">
-						<div class="card-header">
-							<h5>나의 농지 리스트</h5>
-						</div>
-						<div class="card-body">
-							<div class="card-body table-border-style">
-								<div class="table-responsive">
-									<table class="table">
-										<thead>
-											<tr>
-												<th>No</th>
-												<th>농장이름</th>
-												<th>주소</th>
-												<th>면적</th>
-												<th>상세</th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:forEach items="${farmlist }" var="fa">
-												<tr class="table-success">
-													<th name="farm_no">${fa.farm_no }</th>
-													<th name="farm_name">${fa.farm_name }</th>
-													<th name="farm_adr">${fa.farm_adr }</th>
-													<th name="farm_area">${fa.farm_area }</th>
-													<th><button type="button"
-															class="btn  btn-outline-success" id="btnFarm"
-															data-toggle="modal" data-target="#gridSystemModal">보기</button>
-														<button type="submit" class="btn  btn-outline-warning"
-															onclick="updateAlert('${fa.farm_no }')"">수정</button>
-														<button type="button" class="btn  btn-outline-danger"
-															onclick="deleteAlert('${fa.farm_no }')">삭제</button></th>
-												</tr>
-											</c:forEach>
 
-										</tbody>
-									</table>
-									<div class="col-md-12" align="center">
-										<button type="button" class="btn  btn-outline-success"
-											onclick="location.href='insertFarm'">등록</button>
-										<button type="button" class="btn  btn-outline-danger">취소</button>
-									</div>
+<body>
+	<section class="pcoded-main-container">
+		<!-- [ Main Content ] start -->
+		<div class="pcoded-main-container">
+			<div class="pcoded-content">
+				<!-- [ breadcrumb ] start -->
+				<div class="page-header">
+					<div class="page-block">
+						<div class="row align-items-center">
+							<div class="col-md-12">
+								<div class="page-header-title">
+									<h5 class="m-b-10">Modal</h5>
 								</div>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html"><i
+											class="feather icon-home"></i></a></li>
+									<li class="breadcrumb-item"><a href="#!">Basic
+											Components</a></li>
+									<li class="breadcrumb-item"><a href="#!">Modal</a></li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-		</div>
-	</div>
-	
-	
+				<!-- [ breadcrumb ] end -->
+				<!-- [ Main Content ] start -->
+				<div class="row">
+					<!-- [ vertically-modal ] start -->
+					<div class="col-md-10">
+						<div class="card" >
+							<div class="card-body" align="center">
 
-<!-- 모달시작 -->
-	<div id="gridSystemModal" class="modal fade" tabindex="-1"
-		role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+								<!-- [ Contextual-table ] start -->
+								<div class="col-md-9">
+									<div class="card-header">
+										<h2>나의 농지 List</h2>
+									</div>
+									<div class="table-responsive">
+										<table class="table">
+											<thead>
+												<tr class="table-success">
+													<th>No</th>
+													<th>농장이름</th>
+													<th>주소</th>
+													<th>면적</th>
+													<th>상세보기</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach items="${farmlist }" var="fa">
+													<tr>
+														<th>${fa.farm_no }</th>
+														<th>${fa.farm_name }</th>
+														<th>${fa.farm_adr }</th>
+														<th>${fa.farm_area }</th>
+														<th><button type="button" id="btnFarm"
+																class="btn  btn-outline-success"
+																onclick="fnfarmView('${fa.farm_no}')">보기</button>
+															<button class="btn  btn-outline-warning" 
+															onclick="fnfarmUpdate('${fa.farm_no}')">수정</button>
+															<button type="button" class="btn  btn-outline-danger"
+																onclick="deleteAlert('${fa.farm_no }')">삭제</button>
+														</th>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+									<div class="col-md-10" align="center">
+										<button type="submit" class="btn  btn-outline-success"
+											onclick="location.href='insertFarm'">등록</button>
+									</div>
+								</div>
+								<!-- [ Contextual-table ] end -->
+							</div>
+						</div>
+						<!-- [ vertically-modal ] end -->
+					</div>
 
-			<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="gridModalLabel">Grids in Modals</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									</div>
-									<div class="modal-body">
-										<div class="card">
-											<div class="card-body">
-												<p class="card-text"></p>
-												<p class="card-text">
-													<small class="text-muted">
-														<table class="table">
-															<tr>
-																<td colspan="3" type="hidden" name="hidden_farmNo"></td>
-															</tr>
-															<tr>
-																<th class="table-success" name="farm_name">농장이름</th>
-																<td colspan="3"></td>
-															</tr>
-															<tr>
-																<th class="table-success">면적</th>
-																<td></td>
-																<th class="table-success">주소</th>
-																<td></td>
-															</tr>
-															<tr>
-																<th class="table-success">소개</th>
-																<td colspan="3"></td>
-															</tr>
-														</table>
-													</small>
-												</p>
-											</div>
-											<!-- 사진파일 들어와야함!!! -->
-											<img class="img-fluid card-img-bottom"
-												src="resources/admin/images/slider/img-slide-6.jpg" 
-												alt="Card image cap">
-										</div>
-									</div>
+
+				</div>
+
+
+
 			</div>
+
+			<!-- 모달시작 -->
+			<div class="modal fade" id="farmCenter" tabindex="-1" role="dialog"
+				aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content"></div>
+				</div>
+			</div>
+			<!-- 끝 -->
 		</div>
-	</div>
-<!-- 모달 끝 -->
+	</section>
+
+
 
 	<!-- Required Js -->
 	<script src="resources/admin/js/vendor-all.min.js"></script>
 	<script src="resources/admin/js/plugins/bootstrap.min.js"></script>
 	<script src="resources/admin/js/ripple.js"></script>
 	<script src="resources/admin/js/pcoded.min.js"></script>
-
-
-	<script>
-	function farmSelect(){
-	$('body').on('click','#btnFarm',function(){
-		var farm_no = $(this).closest('tr').fine(#hidden_)
-		$.ajax({
-			url:'getFarm',
-			data: { farm_no :${farm_no} },
-			type: 'GET',
-			dataType:'json',
-			success: farmSelectResult
-									
-		});
-	}
-		
-	function farmSelectResult(farm){
-			$('td[name=farm_no]').val(farm.farm_id);
-			$('td[name=farm_name]').val(farm.farm_name);
-			$('td[name=farm_adr]').val(farm.farm_adr);
-			$('td[name=farm_area]').val(farm.farm_area);
-			}	
-		
-	
-		
-		
-		$('#gridSystemModal').on('click', function(event) {
-			var button = $('#btnFarm') // Button that triggered the modal
-			var recipient = button.data('whatever') // Extract info from data-* attributes
-			var modal = $(this)
-			modal.find('.modal-title').text('New message to ' + recipient)
-			modal.find('.modal-body input').val(recipient)
-			
-			var farm_name = $(this).closest('h5').find('#farm_name').val();
-			
-
-		}
-		
-	</script>
-
-
 
 	<script type="text/javascript">
 		function deleteAlert(str) {
@@ -189,10 +150,25 @@ table {
 			}
 		}
 
-		function updateAlert(str) {
-			location.href = "updateFarm?farm_no" + str;
+		function fnfarmView(str) {
+			$('#farmCenter .modal-content').load("getFarm?farm_no=" + str);
+			$('#farmCenter').modal();
+
+		}
+		
+		function fnfarmUpdate(str) {
+			$('#farmCenter .modal-content').load("updateFarm?farm_no=" + str);
+			$('#farmCenter').modal();
+
 		}
 	</script>
+
+
+
+
+
+
+
 
 </body>
 </html>

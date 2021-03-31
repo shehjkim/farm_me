@@ -8,9 +8,9 @@ public interface FarmMapper {
 
 	public List<FarmVO> getFarmList();
 	
-//	public FarmVO getFarm(FarmVO vo);
+	public FarmVO getFarm(FarmVO vo);
 	
-	public List<FarmVO> getFarm(FarmVO vo);
+//	public List<FarmVO> getFarm(FarmVO vo);
 	
 	public int insertFarm(FarmVO vo);
 	
