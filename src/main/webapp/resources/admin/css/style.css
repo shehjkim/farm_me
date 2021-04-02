@@ -2843,7 +2843,7 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -2862,7 +2862,7 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -3144,7 +3144,7 @@ fieldset:disabled a.btn {
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -3160,7 +3160,7 @@ fieldset:disabled a.btn {
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
   .show > .btn-outline-primary.dropdown-toggle {
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -3698,7 +3698,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -4055,7 +4055,7 @@ input[type="button"].btn-block {
 .custom-control-input:checked ~ .custom-control-label::before {
     color: #fff;
     border-color: #4680ff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
@@ -4120,7 +4120,7 @@ input[type="button"].btn-block {
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
     border-color: #4680ff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -4350,7 +4350,7 @@ input[type="button"].btn-block {
     width: 1rem;
     height: 1rem;
     margin-top: -0.25rem;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border: 0;
     border-radius: 1rem;
     -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4383,7 +4383,7 @@ input[type="button"].btn-block {
 .custom-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border: 0;
     border-radius: 1rem;
     -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4419,7 +4419,7 @@ input[type="button"].btn-block {
     margin-top: 0;
     margin-right: 0rem;
     margin-left: 0rem;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border: 0;
     border-radius: 1rem;
     -ms-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -4560,7 +4560,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 .nav-fill .nav-item {
@@ -5279,7 +5279,7 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -5363,7 +5363,7 @@ a.badge:hover, a.badge:focus {
 
 .badge-primary {
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 a.badge-primary:hover, a.badge-primary:focus {
@@ -5677,7 +5677,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     color: #fff;
     text-align: center;
     white-space: nowrap;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     transition: width 0.6s ease;
 }
 
@@ -5765,7 +5765,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -19291,7 +19291,7 @@ pre[class*=language-]:before {
 /*====== Padding , Margin css ends ======*/
 /*====== text-color, background & border css starts ======*/
 .bg-c-blue {
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 .text-c-blue {
@@ -21342,7 +21342,7 @@ pre[class*=language-]:before {
 
 .pcoded-navbar.theme-horizontal .pcoded-inner-navbar > li.active:after, .pcoded-navbar.theme-horizontal .pcoded-inner-navbar > li.pcoded-trigger:after {
     content: "";
-    background-color: #4680ff;
+    background-color: #78c2ad;
     z-index: 4;
     position: absolute;
     left: 19px;
@@ -22398,7 +22398,7 @@ pre[class*=language-]:before {
 .page-item.active .page-link {
     z-index: 1;
     color: #fff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -22908,7 +22908,7 @@ pre[class*=language-]:before {
 }
 
 .order-visitor-card:hover {
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 .order-visitor-card:hover h4,
@@ -23650,7 +23650,7 @@ pre[class*=language-]:before {
 }
 
 .widget-chat-box .receive-chat {
-    background-color: #4680ff;
+    background-color: #78c2ad;
     color: #fff;
     border-radius: 10px;
 }
@@ -23845,14 +23845,14 @@ table.dataTable.fixedHeader-floating {
 ==========================  **/
 .footable .pagination > .active > a,
 .footable .pagination > .active > span {
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
 .footable .pagination > .active > a:focus, .footable .pagination > .active > a:hover,
   .footable .pagination > .active > span:focus,
   .footable .pagination > .active > span:hover {
-    background-color: #4680ff;
+    background-color: #78c2ad;
     border-color: #4680ff;
 }
 
@@ -23913,7 +23913,7 @@ table.footable-paging-center > tfoot > tr.footable-paging > td {
 /**======= basic table css end ======**/
 #row-delete .selected,
 #row-select .selected {
-    background-color: #4680ff;
+    background-color: #78c2ad;
     color: #fff;
 }
 
@@ -23968,7 +23968,7 @@ div.dt-button-info h2 {
     font-weight: normal;
     color: #fff;
     border-bottom: 1px solid #4680ff;
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 div.dt-button-info > div {
@@ -24179,7 +24179,7 @@ div.dtk-focus-alt table.dataTable tbody th.focus {
 }
 
 .auth-wrapper .card-body .carousel-indicators li.active {
-    background-color: #4680ff;
+    background-color: #78c2ad;
 }
 
 .auth-wrapper .img-logo-overlay {

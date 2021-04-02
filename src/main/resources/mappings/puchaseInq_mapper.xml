@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="co.finalproject.farm.app.myPage.service.impl.PurchaseInqMapper">
+
+<!-- 전제조회 -->
+	<select id="getpuchasInqList" resultType="puchasInqVO">
+		SELECT *
+		FROM PURCHASE_INQURIY
+	</select>
+	
+<!-- 단건조회 -->	
+	<select id="getpuchasInq" resultType="puchasInqVO">	
+		SELECT *
+		FROM PURCHASE_INQURIY
+		WHERE pur_inq_no=#{pur_inq_no}		
+	</select>
+
+<!-- 등록 -->	
+	<insert id="insertpuchasInq" parameterType="puchasInqVO">
+		INSERT INTO PURCHASE_INQURIY		
+		VALUES(
+					(select nvl(max(pur_inq_no),0)+1 from PURCHASE_INQURIY)
+					,sysdate
+					,#{pur_inq_title}
+					,#{pur_inq_content}
+					,#{pur_inq_check}
+					,#{pro_no}
+					,#{pur_inq_filename}
+					,#{user_id}
+			)		
+	</insert>
+
+<!-- 수정 -->	
+	<update id="updatepuchasInq" parameterType="puchasInqVO">
+		UPDATE PURCHASE_INQURIY
+				SET
+						pur_inq_title = #{pur_inq_title}
+						,pur_inq_content = #{pur_inq_content}
+						,pur_inq_check = #{pur_inq_check}
+						,pur_inq_filename = #{pur_inq_filename}
+			WHERE pur_inq_no = #{pur_inq_no}
+	</update>
+
+<!-- 삭제 -->	
+	<delete id="deletepuchasInq" parameterType="puchasInqVO">
+				DELETE FROM PURCHASE_INQURIY
+						WHERE pur_inq_no = #{pur_inq_no}
+	
+	</delete>
+</mapper>
