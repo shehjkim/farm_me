@@ -51,6 +51,8 @@
 		
 	</delete>
 
+
+<!-- //////// 댓글 ////////// -->
  <!-- 댓글 조회 -->
 	<select id="getintoFarmReplyList" 	parameterType="IntoFarmReplyVO"
 										resultType="IntoFarmReplyVO">
@@ -60,20 +62,23 @@
 	</select>
 
 <!-- 댓글등록 -->	
-	<insert id="insertintoFarmReply" parameterType="IntoFarmReplyVO">
+	<insert id="insertIntoFarmReply" parameterType="IntoFarmReplyVO">
+		  <selectKey resultType="string" keyProperty="into_inq_rep_no" order="BEFORE">
+        		select nvl(max(into_inq_rep_no),0)+1 from INTOFARM_INQUIRY_REPLY      
+    		</selectKey>  
 		INSERT INTO INTOFARM_INQUIRY_REPLY
 		VALUES (
 				#{into_inq_rep_no}
 				,#{into_inq_rep_content}
 				,#{into_inq_no}
 				,#{user_id}
-				,#{into_inq_rep_date}
+				,sysdate
 				)
 		
 	</insert>
 	
 <!-- 댓글삭제 -->
-	<delete id="deleteintoFarmReply" parameterType="IntoFarmReplyVO">
+	<delete id="deleteIntoFarmReply" parameterType="IntoFarmReplyVO">
 			DELETE FROM INTOFARM_INQUIRY_REPLY
 			WHERE into_inq_rep_no = #{into_inq_rep_no}
 

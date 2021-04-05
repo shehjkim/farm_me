@@ -60,7 +60,9 @@
 						WHERE pur_inq_no = #{pur_inq_no}
 	
 	</delete>
-	
+
+
+<!-- //////// 댓글 ////////// -->	
 <!-- 댓글 조회 -->
 	<select id="getpuchasReplyList" resultType="puchasReplyVO">
 			SELECT * 
@@ -71,9 +73,12 @@
 
 <!-- 댓글 등록 -->
 	<insert id="insertpuchasReply" parameterType="puchasReplyVO">
+			<selectKey resultType="string" keyProperty="pur_inq_rep_no" order="BEFORE">
+        		select nvl(max(pur_inq_rep_no),0)+1 from PURCHASE_INQURIY_REPLY     
+    		</selectKey>  
 		INSERT INTO PURCHASE_INQURIY_REPLY
 		VALUES (
-				(select nvl(max(pur_inq_rep_no),0)+1 from PURCHASE_INQURIY_REPLY)
+				#{pur_inq_rep_no}
 				,#{pur_inq_rep_content}
 				,#{pur_inq_no}
 				,#{user_id}

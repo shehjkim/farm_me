@@ -8,20 +8,20 @@ import co.finalproject.farm.app.myPage.service.IntoFarmReplyVO;
 
 public interface IntoFarmInqMapper {
 	
-	public List<IntoFarmInqVO> getintoFarmInqList();
+	public List<IntoFarmInqVO>getIntoFarmInqList();
 	
-	public IntoFarmInqVO getintoFarmInq(IntoFarmInqVO vo);
+	public IntoFarmInqVO getIntoFarmInq(IntoFarmInqVO vo);
 	
-	public int insertintoFarmInq(IntoFarmInqVO vo);
+	public int insertIntoFarmInq(IntoFarmInqVO vo);
 	
-	public int updateintoFarmInq(IntoFarmInqVO vo);
+	public int updateIntoFarmInq(IntoFarmInqVO vo);
 	
-	public int deleteintoFarmInq(IntoFarmInqVO vo);
+	public int deleteIntoFarmInq(IntoFarmInqVO vo);
 	
 	
 	//댓글
-//	public List<IntoFarmReplyVO> getintoFarmReplyList(IntoFarmReplyVO vo);
-//	public int insertintoFarmReply(IntoFarmReplyVO vo);
-//	public int deleteintoFarmReply(IntoFarmReplyVO vo);
+	public List<IntoFarmReplyVO> getintoFarmReplyList(IntoFarmReplyVO vo);
+	public int insertIntoFarmReply(IntoFarmReplyVO vo);
+	public int deleteIntoFarmReply(IntoFarmReplyVO vo);
 
 }

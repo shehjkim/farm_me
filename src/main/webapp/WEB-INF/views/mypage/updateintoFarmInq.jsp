@@ -7,7 +7,7 @@
 <div class="row">
 			
 				<!-- 숨겨진 유저 ID -->
-						<input type="hidden" name="into_inq_no" value="${ulist.into_inq_no } }">
+						<input type="hidden" name="into_inq_no" value="${ulist.into_inq_no }">
 				<!-- 숨겨진 유저 ID -->
 			
 				<table class="table">
