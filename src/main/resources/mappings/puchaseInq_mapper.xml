@@ -11,7 +11,8 @@
 	</select>
 	
 <!-- 단건조회 -->	
-	<select id="getpuchasInq" resultType="puchasInqVO">	
+	<select id="getpuchasInq"   parameterType="puchasInqVO"
+								resultType="puchasInqVO">	
 		SELECT *
 		FROM PURCHASE_INQURIY
 		WHERE pur_inq_no=#{pur_inq_no}		
@@ -19,16 +20,27 @@
 
 <!-- 등록 -->	
 	<insert id="insertpuchasInq" parameterType="puchasInqVO">
-		INSERT INTO PURCHASE_INQURIY		
+		INSERT INTO PURCHASE_INQURIY(
+										PUR_INQ_NO
+										,PUR_INQ_DATE
+										,PUR_INQ_TITLE
+										,PUR_INQ_CONTENT
+										,PUR_INQ_CHECK
+										,USER_ID
+										,PRO_NO
+										,PUR_INQ_FILENAME	
+									)
+				
 		VALUES(
 					(select nvl(max(pur_inq_no),0)+1 from PURCHASE_INQURIY)
 					,sysdate
 					,#{pur_inq_title}
-					,#{pur_inq_content}
+					,#{pur_inq_content}					
 					,#{pur_inq_check}
+					,#{user_id}
 					,#{pro_no}
 					,#{pur_inq_filename}
-					,#{user_id}
+					
 			)		
 	</insert>
 
@@ -38,7 +50,6 @@
 				SET
 						pur_inq_title = #{pur_inq_title}
 						,pur_inq_content = #{pur_inq_content}
-						,pur_inq_check = #{pur_inq_check}
 						,pur_inq_filename = #{pur_inq_filename}
 			WHERE pur_inq_no = #{pur_inq_no}
 	</update>
@@ -49,4 +60,35 @@
 						WHERE pur_inq_no = #{pur_inq_no}
 	
 	</delete>
+	
+<!-- 댓글 조회 -->
+	<select id="getpuchasReplyList" resultType="puchasReplyVO">
+			SELECT * 
+			FROM PURCHASE_INQURIY_REPLY
+			WHERE PUR_INQ_NO = #{pur_inq_no}	
+	</select>
+
+
+<!-- 댓글 등록 -->
+	<insert id="insertpuchasReply" parameterType="puchasReplyVO">
+		INSERT INTO PURCHASE_INQURIY_REPLY
+		VALUES (
+				(select nvl(max(pur_inq_rep_no),0)+1 from PURCHASE_INQURIY_REPLY)
+				,#{pur_inq_rep_content}
+				,#{pur_inq_no}
+				,#{user_id}
+				,sysdate
+				)
+		
+	</insert>
+	
+
+<!-- 댓글 삭제 -->	
+	<delete id="deletepuchasReply" parameterType="puchasReplyVO">
+			DELETE FROM PURCHASE_INQURIY_REPLY
+			WHERE pur_inq_rep_no = #{pur_inq_rep_no}
+
+	</delete>
+	
+	
 </mapper>

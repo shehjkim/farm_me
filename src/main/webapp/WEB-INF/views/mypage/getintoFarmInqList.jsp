@@ -53,7 +53,7 @@
 								<!-- [ Contextual-table ] start -->
 								<div class="col-md-9">
 									<div class="card-header">
-										<h2>구매 문의</h2>
+										<h2>농촌속으로 문의</h2>
 									</div>
 									<div class="card-body table-border-style">
 										<div class="table-responsive">
@@ -66,10 +66,10 @@
 
 												<tbody>
 													<c:forEach items="${list }" var="list">
-														<tr  onclick="pQNAview('${list.pur_inq_no}')">
-															<td>${list.pur_inq_no }</td>
-															<td>${list.pur_inq_title }</td>
-															<td>${list.pur_inq_check }</td>
+														<tr  onclick="iQNAview('${list.into_inq_no}')">
+															<td>${list.into_inq_no }</td>
+															<td>${list.into_inq_title }</td>
+															<td>${list.into_inq_check }</td>
 														</tr>
 													</c:forEach>
 												</tbody>
@@ -81,7 +81,7 @@
 							<!-- [ Contextual-table ] end -->
 						</div>
 						<div align="center">
-							<button type="button" class="btn  btn-outline-success" onclick="location.href='insertpuchasInq'">등록</button>
+							<button type="button" class="btn  btn-outline-success" onclick="location.href='insertintoFarmInq'">등록</button>
 						</div>
 					</div>
 					<!-- [ vertically-modal ] end -->
@@ -91,7 +91,7 @@
 			</div>
 
 			<!-- 상세모달시작 -->
-			<div class="modal fade bd-example-modal-lg" id="pQNAview"
+			<div class="modal fade bd-example-modal-lg" id="iQNAview"
 				tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog modal-lg" role="document">
@@ -109,7 +109,7 @@
 			<!-- 모달끝 -->
 			
 			<!-- 수정모달시작 -->
-			<div class="modal fade bd-example-modal-lg" id="pQNAupdate"
+			<div class="modal fade bd-example-modal-lg" id="iQNAupdate"
 				tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 				aria-hidden="true">
 				<div class="modal-dialog modal-lg" role="document">
@@ -136,18 +136,18 @@
 	<script src="resources/admin/js/pcoded.min.js"></script>
 	<script type="text/javascript">
 	
-		function pQNAview(str) {
-			$('#pQNAview .modal-body').load("getpuchasInq?pur_inq_no=" + str);
-			$('#pQNAview').modal('show');
-			$('#pQNAupdate').modal('hide'); //수정모달 숨김
+		function iQNAview(str) {
+			$('#iQNAview .modal-body').load("getintoFarmInq?into_inq_no=" + str);
+			$('#iQNAview').modal('show');
+			$('#iQNAupdate').modal('hide'); //수정모달 숨김
 
 		}
 
-		function pQNAupdate(strr) {
-			$('#pQNAview').remove();
-			$('#pQNAupdate .modal-body').load("updatepuchasInq?pur_inq_no=" + strr);
-			$('#pQNAupdate').modal('show');
-			$('#pQNAview').modal('hide');
+		function iQNAupdate(strr) {
+			$('#iQNAview').remove();
+			$('#iQNAupdate .modal-body').load("updateintoFarmInq?into_inq_no=" + strr);
+			$('#iQNAupdate').modal('show');
+			$('#iQNAview').modal('hide');
 		}
 	</script>
 </body>

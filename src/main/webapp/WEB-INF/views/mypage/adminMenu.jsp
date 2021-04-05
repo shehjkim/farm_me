@@ -61,7 +61,7 @@
 					        <li><a href="memberOut">회원탈퇴</a></li>
 					        <li><a href="getFarmList">나의농지</a></li>
                             <li><a href="insertFarmer">농업인 권한 신청</a></li>
-					        <li><a href="bc_breadcrumb-pagination.html">문의 답변 관리</a></li>
+					        <li><a href="getpuchasInqList">문의 답변 관리</a></li>
 					    </ul>
 					</li>
                     <li class="nav-item pcoded-hasmenu">
@@ -82,7 +82,7 @@
                             <ul class="pcoded-submenu">
                                 <li><a href="bc_alert.html">신청 내역 관리</a></li>
                                 <li><a href="bc_alert.html">나의 신청 내역</a></li>
-                                <li><a href="bc_button.html">체험 관련 문의</a></li>
+                                <li><a href="getintoFarmInqList">체험 관련 문의</a></li>
                             </ul>
                         </li>
 					</li>
