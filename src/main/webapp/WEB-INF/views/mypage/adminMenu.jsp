@@ -74,7 +74,7 @@
 					    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">구매관리</span></a>
 					    <ul class="pcoded-submenu">
 					        <li><a href="bc_alert.html">장바구니</a></li>
-					        <li><a href="bc_button.html">구매내역</a></li>
+					        <li><a href="getOrderList">구매내역</a></li>
 					        <li><a href="getpuchasInqList">구매 관련 문의</a></li>
 					    </ul>
                         <li class="nav-item pcoded-hasmenu">
