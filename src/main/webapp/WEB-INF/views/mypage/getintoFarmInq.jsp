@@ -84,7 +84,8 @@
 <script src="resources/admin/js/ripple.js"></script>
 <script src="resources/admin/js/pcoded.min.js"></script>
 <script type="text/javascript">
-	
+
+//문의글 삭제
 	function deleteAlert(str) {
 		var yn = confirm("정말 삭제할까요?");
 		if (yn) {
@@ -93,6 +94,24 @@
 			alert("삭제하지 못하였습니다.  ");
 		}
 	}
+
+//댓글삭제
+	function deleteReply(obj) {
+	    if (!confirm("삭제하시겠습니까?")) {
+	        return;
+	    }
+		$.ajax({
+			url:'deleteintoFarmReply',
+			type: 'post',
+			data: { "into_inq_rep_no" : obj },
+			success: function(result){
+					$("#replyItem").remove();
+					 alert("삭제 되었습니다.");
+
+				}
+		});
+ }
+	
 	
 	//댓글 목록 조회
 	$.ajax({
@@ -102,11 +121,11 @@
 		success: function(response) {
 			for(i=0; i<response.length; i++){
 				$("#reply").append(
-						"<tr><td>" + response[i].into_inq_rep_no + "</td><td>"
+						"<tr  id='replyItem'><td>" + response[i].into_inq_rep_no + "</td><td>"
 						+ response[i].into_inq_rep_content + "</td><td>"
 						+ response[i].user_id + "</td><td>"
 						+ response[i].into_inq_rep_date + "</td><td>"
-						+ "<button type='button' class='deleteReply'>" + "삭제" + "</button>"
+						+ "<button type='button' class='btn  btn-outline-danger btn-sm' onclick='deleteReply("+response[i].into_inq_rep_no+")'>" + "삭제" + "</button>"
 						+ "</td></tr>"
 						
 						);

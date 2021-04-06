@@ -99,17 +99,22 @@
 		}
 	}
 	
-//댓글삭제
+ //댓글삭제
 	function deleteReply(obj) {
-	var yn = confirm("정말 삭제할까요?");
-	if (yn) {
-		location.href = "deletepuchasReply?pur_inq_rep_no=" + obj;
-	} else {
-		alert("삭제하지 못하였습니다.  ");
-	}
-	
-}
-		
+	    if (!confirm("삭제하시겠습니까?")) {
+	        return;
+	    }
+		$.ajax({
+			url:'deletepuchasReply',
+			type: 'post',
+			data: { "pur_inq_rep_no" : obj },
+			success: function(result){
+					$("#replyItem").remove();
+					 alert("삭제 되었습니다.");
+
+				}
+		});
+ }
 	
 	
 //댓글 목록 조회
@@ -119,12 +124,12 @@ $.ajax({
 		dataType:"json",
 		success: function(response) {
 			for(i=0; i<response.length; i++){
-				$("#reply").append(
-						"<tr><td id='rep_no'>" + response[i].pur_inq_rep_no + "</td><td>"
+				$("#reply").append(						
+						"<tr id='replyItem'><td>" + response[i].pur_inq_rep_no + "</td><td>"
 						+ response[i].pur_inq_rep_content + "</td><td>"
 						+ response[i].user_id + "</td><td>"
 						+ response[i].pur_inq_rep_date + "</td><td>"
-						+ "<button type='button' onclick='deleteReply()'>" + "삭제" + "</button>"
+						+ "<button type='button' class='btn  btn-outline-danger btn-sm' onclick='deleteReply("+response[i].pur_inq_rep_no+")'>" + "삭제" + "</button>"
 						+ "</td></tr>"						
 						);
 			}

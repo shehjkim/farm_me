@@ -103,10 +103,9 @@ public class IntoFarmInqController {
 	
 	//댓글 삭제
 	@RequestMapping("/deleteintoFarmReply")
-	public String deleteintoFarmReply(IntoFarmReplyVO vo) {
-		ifiMapper.deleteIntoFarmReply(vo);
-		
-		return "redirect:getintoFarmReplyList";
+	public @ResponseBody IntoFarmReplyVO deleteintoFarmReply(IntoFarmReplyVO vo) {
+		ifiMapper.deleteIntoFarmReply(vo);		
+		return vo;
 	}
 			
 }

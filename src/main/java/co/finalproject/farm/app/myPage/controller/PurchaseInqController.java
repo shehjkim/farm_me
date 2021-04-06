@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -132,10 +133,9 @@ public class PurchaseInqController {
 	
 //댓글 삭제
 	@RequestMapping("/deletepuchasReply")
-	public String deletepuchasReply(puchasReplyVO vo) {
-		pciMapper.deletepuchasReply(vo);
-		
-		return "redirect:getpuchasReplyList";
+	public @ResponseBody puchasReplyVO deletepuchasReply(puchasReplyVO vo) {
+		pciMapper.deletepuchasReply(vo);		
+		return vo;
 	}
 	
 
