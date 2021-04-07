@@ -65,4 +65,37 @@
 	
 	</delete>
 	
+<!-- /////상세 주문///////-->
+<select id="getOrderView" parameterType="OrderListVO"
+							resultType="OrderListVO">
+	
+		SELECT O.ORDER_NO
+        ,O.PRO_NO
+        ,O.ORDERLIST_PRO_NAME
+        ,O.ORDERLIST_PRO_COUNT
+        ,O.ORDERLIST_PRO_PRICE
+        ,P.PRO_NO
+        ,P.PRO_NAME
+        ,P.PRO_PRICE
+        ,P.PRO_DCOMPANY
+        ,P.PRO_DCOST
+		FROM PRODUCT P JOIN ORDERLIST O
+		ON( P.PRO_NO = O.PRO_NO )
+		WHERE O.ORDER_NO=${order_no}
+		
+</select>
+
+<!-- 판매내역 조회-->
+<select id="getSaleList" parameterType="OrderListVO"
+						resultType="OrderListVO">
+						
+		SELECT L.ORDER_NO             
+               ,L.ORDERLIST_PRO_NAME
+               ,L.ORDERLIST_PRO_COUNT
+               ,L.ORDERLIST_PRO_PRICE
+        FROM PRODUCT P JOIN ORDERLIST L
+        ON (P.PRO_NO = L.PRO_NO)
+        WHERE P.USER_ID = #{user_id}
+        
+</select>
 </mapper>

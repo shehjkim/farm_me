@@ -2,6 +2,7 @@ package co.finalproject.farm.app.myPage.service.impl;
 
 import java.util.List;
 
+import co.finalproject.farm.app.myPage.service.OrderListVO;
 import co.finalproject.farm.app.myPage.service.OrderVO;
 
 public interface OrderMapper {
@@ -16,4 +17,6 @@ public interface OrderMapper {
 	
 	public int deleteOrder(OrderVO vo);
 
+	//판매
+	public OrderListVO getSaleList(OrderListVO vo);
 }
